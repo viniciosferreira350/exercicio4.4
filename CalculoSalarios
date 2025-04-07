@@ -102,3 +102,41 @@ public class CalculoSalarios {
         
         return salario;
     }
+
+import java.util.Scanner;
+
+public class Exercicio5_1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double[][] notas = new double[30][5];
+        double[] mediasAlunos = new double[30];
+        double somaTurma = 0;
+
+        // Entrada de dados
+        for (int i = 0; i < 30; i++) {
+            System.out.println("Digite as 5 notas do aluno " + (i + 1) + ":");
+            double soma = 0;
+            for (int j = 0; j < 5; j++) {
+                System.out.print("Nota " + (j + 1) + ": ");
+                notas[i][j] = scanner.nextDouble();
+                soma += notas[i][j];
+            }
+            mediasAlunos[i] = soma / 5;
+            somaTurma += mediasAlunos[i];
+        }
+
+        double mediaTurma = somaTurma / 30;
+
+        // Relatório
+        System.out.println("\nRelatório Final:");
+        for (int i = 0; i < 30; i++) {
+            System.out.print("Aluno " + (i + 1) + " - Notas: ");
+            for (int j = 0; j < 5; j++) {
+                System.out.print(notas[i][j] + " ");
+            }
+            System.out.println("- Média: " + mediasAlunos[i]);
+        }
+
+        System.out.println("\nMédia da turma: " + mediaTurma);
+    }
+}
