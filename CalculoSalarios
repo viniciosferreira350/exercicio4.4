@@ -140,3 +140,35 @@ public class Exercicio5_1 {
         System.out.println("\nMédia da turma: " + mediaTurma);
     }
 }
+
+import java.util.Scanner;
+
+public class Exercicio5_2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] notas = new int[100];
+        int[] frequencia = new int[11]; // índices de 0 a 10
+
+        // Entrada de dados
+        System.out.println("Digite 100 notas (valores de 0 a 10):");
+        for (int i = 0; i < 100; i++) {
+            int nota;
+            do {
+                System.out.print("Nota " + (i + 1) + ": ");
+                nota = scanner.nextInt();
+                if (nota < 0 || nota > 10) {
+                    System.out.println("Nota inválida. Digite um valor entre 0 e 10.");
+                }
+            } while (nota < 0 || nota > 10);
+            notas[i] = nota;
+            frequencia[nota]++;
+        }
+
+        // Tabela de frequências
+        System.out.println("\nTabela de Notas e Frequência Absoluta:");
+        System.out.println("Nota\tFrequência");
+        for (int i = 0; i <= 10; i++) {
+            System.out.println(i + "\t" + frequencia[i]);
+        }
+    }
+}
